@@ -1,5 +1,6 @@
 class InstructorController < ApplicationController
   def index
+    @instuctors = Instructor.all
   end
 
   def new

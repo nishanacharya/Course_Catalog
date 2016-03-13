@@ -15,10 +15,7 @@ ActiveRecord::Schema.define(version: 20160313050553) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "Name"
-    t.string   "Term"
     t.string   "Code"
-    t.string   "Description"
-    t.float    "Credits"
     t.boolean  "Independent_study"
     t.string   "Requirements"
     t.datetime "created_at",        null: false
@@ -27,16 +24,14 @@ ActiveRecord::Schema.define(version: 20160313050553) do
 
   create_table "instructors", force: :cascade do |t|
     t.string   "First_name"
-    t.string   "Middle_name"
     t.string   "Last_name"
     t.string   "Email"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "Name"
-    t.string   "Term"
     t.string   "Abbrev"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
