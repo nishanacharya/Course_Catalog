@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'subject#index'
+  root 'home#index'
 
   get 'subject/index'
 
@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get 'instructor/update'
 
   get 'instructor/destroy'
+
+  get 'home/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
