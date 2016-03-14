@@ -14,5 +14,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap/variables";
+@import "bootstrap/cerulean/variables";
+@import "bootswatch/cerulean/bootswatch";
+@import "base";
+@import "font-awesome";
 @import "rails_bootstrap_forms";
+@import "users";
