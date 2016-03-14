@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <head>
-    <title>CourseCatalog</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
-  </head>
+    <head>
+      <title>CourseCatalog</title>
+      <%= csrf_meta_tags %>
+      <%= action_cable_meta_tag %>
 
-  <body>
-    <%= link_to 'Subjects List', subject_index_path %> 
-    <%= link_to 'Courses List', course_index_path %>
-    <%= link_to 'Instructors List', instructor_index_path %>
-    <%= link_to 'User Profile', home_index_path %></br >
-    
-    <%= yield %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    </head>
 
-  </body>
+    <body>
+      <%= link_to 'Subjects List', subject_index_path %> 
+      <%= link_to 'Courses List', course_index_path %>
+      <%= link_to 'Instructors List', instructor_index_path %>
+      <%= link_to 'User Profile', home_index_path %></br >
+      
+      <%= yield %>
+
+    </body>
+  </div>
 </html>
