@@ -12,6 +12,12 @@
   </head>
 
   <body>
+    <%= link_to 'Subjects List', subject_index_path %> 
+    <%= link_to 'Courses List', course_index_path %>
+    <%= link_to 'Instructors List', instructor_index_path %>
+    <%= link_to 'User Profile', home_index_path %></br >
+    
     <%= yield %>
+
   </body>
 </html>
