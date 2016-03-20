@@ -6,18 +6,12 @@
 
         <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Subjects List', subject_index_path %> <i class="fa fa-bell"></i></a></li>
-            <li><%= link_to 'Courses List', course_index_path %><i class="fa fa-envelope"></i></a></li>
-            <li><%= link_to 'Instructors List', instructor_index_path %><i class="fa fa-cog"></i></a></li>
+            <li><%= link_to 'Subjects List', subject_index_path %></li>
+            <li><%= link_to 'Courses List', course_index_path %></li>
+            <li><%= link_to 'Instructors List', instructor_index_path %></li>
             <li><%= link_to 'User Profile', home_index_path %></br >
-            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></a></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
         </ul>
         <% end %>
-
-        <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-        </form>
     </div>
 </div>
