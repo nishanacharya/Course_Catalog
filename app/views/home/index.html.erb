@@ -1,2 +1,8 @@
 <h1>User Profile Page</h1>
 <p>Email: <%= current_user.email %></p>
+
+<h3> Courses Enrolled in </h3>
+
+<% current_user.courses.each do |course| %>
+	<%= course.Name %></br >
+<% end %>

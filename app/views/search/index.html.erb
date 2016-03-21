@@ -26,12 +26,16 @@
 	        <td><%= course.Code %></td>
 	        <td><%= course.Independent_study %></td>
 	        <td><%= course.Requirements %></td>
-	        <td><%= form_for(:enrollment, :url => url_for(:controller => "enrollment", :action => "create", :id => @enrollment)) do |f|%>
-	        	<%= f.hidden_field :user_id, value: current_user.id %>
-	        	<%= f.hidden_field :course_id, value: course.id %>
-    			<%= f.submit 'Enroll' %>
-				<% end %>
-			</td>
+	        <% if !Enrollment.where(user_id: current_user.id, course_id: course.id).exists? %>
+		        <td><%= form_for(:enrollment, :url => url_for(:controller => "enrollment", :action => "create", :id => @enrollment)) do |f|%>
+		        	<%= f.hidden_field :user_id, value: current_user.id %>
+		        	<%= f.hidden_field :course_id, value: course.id %>
+	    			<%= f.submit 'Enroll' %>
+					<% end %>
+				</td>
+			<% else %>
+				<td> Enrolled </td>
+			<% end %>
 	      </tr>
 	    <% end %>
 	  </tbody>
