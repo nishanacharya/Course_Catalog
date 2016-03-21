@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'json'
+Instructor.delete_all
+Subject.delete_all
+Course.delete_all
+
 instructor_data = File.read('instructor.json')
 instructor_hash = JSON.parse(instructor_data)
 instructor_hash.each do |data|
@@ -22,7 +26,8 @@ subject_hash.each do |data|
 	name = data['name']
 	term = data['term']
 	abbrev = data['abbreviation']
-	Subject.create(Name: name, Abbrev: abbrev)
+	subject_id = data['id']
+	Subject.create(Name: name, Abbrev: abbrev, Subject_id: subject_id)
 end
 
 course_data = File.read('course.json')
@@ -32,5 +37,10 @@ course_hash.each do |data|
 	code = data['code']
 	independent_study = data['independent_study']
 	requirements = data['requirements']
-	Course.create(Name: name, Code: code, Independent_study: independent_study, Requirements: requirements)
+	course = Course.create(Name: name, Code: code, Independent_study: independent_study, Requirements: requirements)
+	data['subjects'].each do |subjectHash|
+		subject_id = subjectHash['id']
+		subject = Subject.find_by(Subject_id: subject_id)
+		CourseSubject.create(course_id: course.id, subject_id: subject.id) if !subject.nil?
+	end	
 end
