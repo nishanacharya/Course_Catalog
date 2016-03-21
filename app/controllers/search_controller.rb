@@ -6,7 +6,7 @@ class SearchController < ApplicationController
     else 
       @courses = Course.search(params[:search]).order(:Name)
     end
-    
+
     @subjects = Subject.all.order(:Name)
 
   end
@@ -25,4 +25,5 @@ class SearchController < ApplicationController
 
   def destroy
   end
+
 end

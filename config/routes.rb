@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'enrollment/index'
+
+  get 'enrollment/new'
+
+  get 'enrollment/edit'
+
+  post 'enrollment/create'
+
+  get 'enrollment/update'
+
+  get 'enrollment/destroy'
+
   devise_for :users
   root 'home#index'
 
