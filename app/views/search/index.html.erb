@@ -1,46 +1,7 @@
-<%= form_tag(search_index_path, :method => "get", id: "search-form") do %>
+<%= form_tag(search_index_path, :method => "get", id: "search-form", remote: true) do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
 	<%= select_tag :subject, options_from_collection_for_select(@subjects, "id", "Name"), include_blank: true%>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-
-<h1> Search Results </h1>
-
-<%= link_to 'Back to Search Page', search_index_path %></br >
-
-<% if @courses.blank? %>
-	No Results Found.
-<% else %>
-	<table>
-	  <thead>
-	    <tr>
-	      <th>Name </th>
-	      <th>Code</th>
-	      <th>Independent_study</th>
-	      <th>Requirements</th>
-	      <th colspan="4"></th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <% @courses.each do |course| %>
-	      <tr>
-	        <td><%= course.Name %></td>
-	        <td><%= course.Code %></td>
-	        <td><%= course.Independent_study %></td>
-	        <td><%= course.Requirements %></td>
-	        <% if !Enrollment.where(user_id: current_user.id, course_id: course.id).exists? %>
-		        <td><%= form_for(:enrollment, :url => url_for(:controller => "enrollment", :action => "create", :id => @enrollment)) do |f|%>
-		        	<%= f.hidden_field :user_id, value: current_user.id %>
-		        	<%= f.hidden_field :course_id, value: course.id %>
-	    			<%= f.submit 'Enroll' %>
-					<% end %>
-				</td>
-			<% else %>
-				<td> Enrolled </td>
-			<% end %>
-	      </tr>
-	    <% end %>
-	  </tbody>
-	</table>
-<% end %>
+<div id = "results"><%= render "results" %></div>
