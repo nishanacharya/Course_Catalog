@@ -1,7 +1,6 @@
 <%= form_tag(search_index_path, :method => "get", id: "search-form", remote: true) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
-	<%= select_tag :subject, options_from_collection_for_select(@subjects, "id", "Name"), include_blank: true%>
-    <%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Courses", onkeyup: "$('#search-form').submit();" %>
+	<%= select_tag :subject, options_from_collection_for_select(@subjects, "id", "Name"), include_blank: true, onkeyup: "$('#search-form').submit();"%>
 <% end %>
 
 <div id = "results"><%= render "results" %></div>
