@@ -7,6 +7,12 @@ class SearchController < ApplicationController
       @courses = Course.search(params[:search]).order(:Name)
     end
 
+    if params[:subject].blank? && params[:search].blank?
+      @criteria = false
+    else 
+      @criteria = true
+    end
+
     @subjects = Subject.all.order(:Name)
     
     respond_to do |format|
