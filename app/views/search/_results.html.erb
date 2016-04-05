@@ -23,7 +23,7 @@
 			        <td><%= form_for(:enrollment, :url => url_for(:controller => "enrollment", :action => "create", :id => @enrollment)) do |f|%>
 			        	<%= f.hidden_field :user_id, value: current_user.id %>
 			        	<%= f.hidden_field :course_id, value: course.id %>
-		    			<%= f.submit 'Enroll' %>
+		    			<button type="submit" class="btn btn-primary">Enroll</button>
 						<% end %>
 					</td>
 				<% else %>
