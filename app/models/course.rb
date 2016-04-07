@@ -6,6 +6,6 @@ class Course < ApplicationRecord
   has_many :subjects, through: :course_subjects
 
   def self.search(search)
-	where("name LIKE ?", "%#{search}%") 
+	Course.where(Course.arel_table[:Name].matches("%#{search}%"))
   end
 end
