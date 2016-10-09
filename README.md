@@ -1,25 +1,9 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Course_Catalog parses JSON file containing details about the classes, instructors, and subject taught at Brandeis University.
 
-Things you may want to cover:
+Users are able to create an account and login to see all these details listed from the database.
 
-* Ruby version
+Users can then search courses, and the application is able to imitate the user enrolling in a course if they select to enroll.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Course_Catalog
+AJAX and Javascipt is used in search function for better user experience.
